@@ -59,15 +59,11 @@ def fetch_and_ingest_news(collection, topic):
 										  language='en',
 										  sort_by='relevancy',
 										  page=2)
-	mongo_docs_to_ingest = []
 	for article in all_articles["articles"]:
-		time.sleep(5)
-		mongo_doc = construct_mongo_document(article)
-		mongo_docs_to_ingest.append(mongo_doc)
-
-	print(f'Inserting Docs Into Mongo...')
-	for doc in mongo_docs_to_ingest:
-		collection.update({"url": doc["url"]}, doc, {upsert: True})
+		time.sleep(2)
+		doc = construct_mongo_document(article)
+		print(f'Inserting Docs Into Mongo...')
+		collection.update_one({"url": doc["url"]}, {"$set": doc}, upsert= True)
 
 if __name__ == "__main__":
 	topic = 'AI Safety'
