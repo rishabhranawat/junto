@@ -9,10 +9,9 @@ import together
 import pymongo
 
 TOGETHER_API_KEY = os.environ['TOGETHER_API_KEY']
-MONGODB_URI = os.environ['JUNTO_MONGODB_URI']
 EMBEDDING_FIELD = 'article_embedding'
 
-def generate_embedding_together(text):
+def _generate_embedding_together(text):
   url = "https://api.together.xyz/api/v1/embeddings"
   headers = {
 	"accept": "application/json",
@@ -31,8 +30,8 @@ def generate_embedding_together(text):
   	raise ValueError(f"Request failed with status code {response.status_code}: {response.text}")
   return response.json()['data'][0]['embedding']
 
-def retrieve(db_collection, query, num_candidates, limit):
-  query_emb = generate_embedding(query, embedding_model_string)
+def _retrieve(db_collection, query, num_candidates, limit):
+  query_emb = _generate_embedding_together(query)
   results = db_collection.aggregate([
     {
       "$vectorSearch": {
