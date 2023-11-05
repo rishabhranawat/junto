@@ -66,7 +66,7 @@ def fetch_and_ingest_news(collection, topic):
 		collection.update_one({"url": doc["url"]}, {"$set": doc}, upsert= True)
 
 if __name__ == "__main__":
-	topic = 'AI Safety'
+	topic = "Climate Change and Politics"
 
 	db = client.get_database('junto-hack-db')
 	collection = db["articles"]
