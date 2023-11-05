@@ -2,14 +2,19 @@ import os
 import requests
 import json
 import time
+from dotenv import load_dotenv
 
 from tqdm import tqdm
 
 import together
 import pymongo
 
+load_dotenv()
 TOGETHER_API_KEY = os.environ['TOGETHER_API_KEY']
 EMBEDDING_FIELD = 'article_embedding'
+
+
+
 
 def _generate_embedding_together(text):
   url = "https://api.together.xyz/api/v1/embeddings"
