@@ -1,0 +1,121 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+#chat-container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+#message-input {
+  border: none;
+  padding: 10px;
+  width: calc(100% - 22px);
+  border-radius: 0;
+}
+
+#submit-button {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#submit-button:hover {
+  background-color: #4cae4c;
+}
+
+#response-container {
+  padding: 20px;
+}
+
+.character-response {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #e9e9e9;
+  border-left: 5px solid #333;
+}
+
+.character-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  #chat-container {
+    width: auto;
+  }
+}
+
+#chat-container {
+  background-color: #f4f4f8; /* Light grey background for the whole container */
+  max-width: 800px; /* Or your preferred width */
+  margin: auto; /* This will center your chat container */
+  padding: 20px; /* This adds some space inside the container */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners for the chat container */
+}
+
+h1 {
+  text-align: center; /* Center-align the title */
+  margin-bottom: 20px; /* Add some space below the title */
+}
+
+#message-input, #submit-button {
+  display: block;
+  margin: 10px auto; /* This will center your input and button */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded corners for inputs and button */
+}
+
+#submit-button {
+  width: 50%; /* Adjust the width as you like, 50% will make it half the width of its parent */
+  padding: 10px;
+  margin: 10px auto;
+  background-color: #4CAF50; /* Green background for the button */
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  display: block; /* This will allow width to take effect */
+}
+
+
+#response-container {
+  display: flex;
+  justify-content: space-between; /* This will add space between your character sections */
+  margin-top: 20px; /* Space below the submit button */
+}
+
+.character-response {
+  flex: 1;
+  padding: 10px;
+  background-color: #fff; /* White background for messages */
+  margin: 10px;
+  border-radius: 5px; /* Rounded corners for message sections */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* A subtle shadow for each message section */
+}
+
+.character-name {
+  background-color: #e7e7e7; /* Light grey background for names */
+  padding: 5px;
+  margin: -10px; /* Aligns the name to the edges of the message sections */
+  margin-bottom: 10px;
+  border-radius: 5px 5px 0 0; /* Rounded corners for the top of the name sections */
+}
