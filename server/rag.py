@@ -2,20 +2,15 @@ import os
 import requests
 import json
 import time
-from dotenv import load_dotenv
 
 from tqdm import tqdm
 
 import together
 import pymongo
 
-load_dotenv()
 TOGETHER_API_KEY = os.environ['TOGETHER_API_KEY']
 EMBEDDING_FIELD = 'article_embedding'
 EMBEDDING_MODEL = 'togethercomputer/m2-bert-80M-32k-retrieval'
-
-
-
 
 def _generate_embedding_together(text):
   url = "https://api.together.xyz/api/v1/embeddings"
@@ -60,4 +55,4 @@ def _retrieve(db_collection, query, num_candidates, limit):
 
 def construct_context_for_junto(collection, topic, left_house, right_house):
   text_to_generate_embedding = f'{topic} AND {left_house} OR {right_house}'
-  return _retrieve(collection, text_to_generate_embedding, 10, 10)
+  return _retrieve(collection, text_to_generate_embedding, 2, 2)
