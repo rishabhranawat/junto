@@ -16,10 +16,11 @@ from rag import construct_context_for_junto
 
 TOGETHER_API_KEY = os.environ['TOGETHER_API_KEY']
 MONGODB_URI = os.environ['JUNTO_MONGODB_URI']
+MONGODB_DATABASE = os.environ['MONGODB_DATABASE']
 
 together.api_key = TOGETHER_API_KEY
 client = pymongo.MongoClient(MONGODB_URI)
-db = client.get_database('junto-hack-db')
+db = client.get_database(MONGODB_DATABASE)
 
 # app settings
 app = Flask(__name__)

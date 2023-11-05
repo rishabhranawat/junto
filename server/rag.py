@@ -12,6 +12,7 @@ import pymongo
 load_dotenv()
 TOGETHER_API_KEY = os.environ['TOGETHER_API_KEY']
 EMBEDDING_FIELD = 'article_embedding'
+EMBEDDING_MODEL = 'togethercomputer/m2-bert-80M-32k-retrieval'
 
 
 
@@ -50,17 +51,13 @@ def _retrieve(db_collection, query, num_candidates, limit):
   ])
 
   keys_to_exclude = ["title", "url", "source", "date"]
-  filtered_results = [], []
+  filtered_results = []
   for document in results:
-      filtered_document = {k: document[k] for k in document if k not in keys_to_exclude and "embedding" not in k}
-
-      filtered_results.append(filtered_document)
+      filtered_results.append(document['content'])
 
   print(f"From your query \"{query}\", the following articles were found:\n")
-  print("\n".join([str(i+1) + ". " + doc['content'] for (i, doc) in enumerate(filtered_results)]))
-
   return filtered_results
 
 def construct_context_for_junto(collection, topic, left_house, right_house):
   text_to_generate_embedding = f'{topic} AND {left_house} OR {right_house}'
-  return retrieve(collection, text_to_generate_embedding, 5, 10)
+  return _retrieve(collection, text_to_generate_embedding, 10, 10)
