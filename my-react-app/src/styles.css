@@ -1,0 +1,9 @@
+.response-container {
+    display: flex;
+  }
+  
+  .speaker-column {
+    flex: 1;
+  }
+  
+  
