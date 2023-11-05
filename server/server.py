@@ -48,9 +48,10 @@ def debate():
 	topic = data['topic']
 	left_house = data['character_a']
 	right_house = data['character_b']
+	conversation_length = data['conversation_length']
 
 	context = construct_context_for_junto(db['articles'], topic, left_house, right_house)
-	debate = generate_debate(topic, context, left_house, right_house, 2)
+	debate = generate_debate(topic, context, left_house, right_house, conversation_length)
 	return jsonify({"response": debate})
 
 if __name__ == "__main__":
