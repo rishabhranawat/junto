@@ -13,6 +13,7 @@ import together
 import pymongo
 
 from rag import construct_context_for_junto
+from generate_debate import generate_debate
 
 TOGETHER_API_KEY = os.environ['TOGETHER_API_KEY']
 MONGODB_URI = os.environ['JUNTO_MONGODB_URI']
@@ -48,7 +49,9 @@ def debate():
 	left_house = data['character_a']
 	right_house = data['character_b']
 
-	return jsonify({"response": construct_context_for_junto(db['articles'], topic, left_house, right_house)})
+	context = construct_context_for_junto(db['articles'], topic, left_house, right_house)
+	debate = generate_debate(topic, context, left_house, right_house, 2)
+	return jsonify({"response": debate})
 
 if __name__ == "__main__":
 	app.run(debug=True)
