@@ -6,6 +6,9 @@ Junto is an innovative project aimed at fostering healthy democracy through enga
 ## Inspiration
 The project draws its inspiration from the need for diverse viewpoints to fully grasp complex issues, emphasizing the value of a multifaceted approach to understanding.
 
+## Demo
+- [YouTube Demo Video](https://youtu.be/WfCr8jSiXPQ)
+
 ## Challenges & Learnings
 The team encountered challenges related to the quality and speed of responses but overcame these to create a demonstrable product. Through this process, valuable insights into MongoDB, RAGs, TogetherAI, and the breadth of Open Source Software (OSS) models were gained.
 
@@ -20,7 +23,3 @@ The team encountered challenges related to the quality and speed of responses bu
 
 ## Acknowledgments
 This project was submitted to the SF AI Hackathon and created by Marcus Kiisa, Akhil Dhavala, and Rishabh Ranawat.
-
----
-
-For more details and updates, please visit the [Junto Devpost page](https://devpost.com/software/junto-c8bute).
