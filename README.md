@@ -1,4 +1,4 @@
-# README.md for Junto Project
+# Junto
 
 ## Overview
 Junto is an innovative project aimed at fostering healthy democracy through engaging debates. The concept revolves around generating and listening to audio debates on various topics, delivered as if by famous personalities.
